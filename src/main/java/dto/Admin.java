@@ -7,6 +7,14 @@ public class Admin {
 	private String loginPass;
 	private String name;
 	
+	public Admin(Integer id, String loginId, String loginPass, String name) {
+		super();
+		this.id = id;
+		this.loginId = loginId;
+		this.loginPass = loginPass;
+		this.name = name;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

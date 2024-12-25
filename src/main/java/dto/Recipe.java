@@ -6,7 +6,7 @@ public class Recipe {
 	private String name;
 	private String detail;
 	private String url;
-	private String photo;
+	private String images;
 	
 	public Recipe(Integer id, String name, String detail, String url, String photo) {
 		super();
@@ -14,7 +14,7 @@ public class Recipe {
 		this.name = name;
 		this.detail = detail;
 		this.url = url;
-		this.photo = photo;
+		this.images = photo;
 	}
 	
 	public Integer getId() {
@@ -41,11 +41,13 @@ public class Recipe {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public String getPhoto() {
-		return photo;
+
+	public String getImages() {
+		return images;
 	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
+
+	public void setImages(String images) {
+		this.images = images;
 	}
 	
 	

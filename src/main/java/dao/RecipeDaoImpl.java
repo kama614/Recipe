@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,16 +40,6 @@ public class RecipeDaoImpl implements RecipeDao {
 		return recipeList;
 	}
 
-	private Recipe mapToRecipe(ResultSet rs) throws Exception {
-		Integer id = (Integer) rs.getObject("id");
-		String name = rs.getString("name");
-		String detail = rs.getString("detail");
-		String url = rs.getString("url");
-		String images = rs.getString("images");
-
-		return new Recipe(id, name, detail, url, images);
-	}
-
 	@Override
 	public List<Recipe> findRecommended() throws Exception {
 		// そのうち記述する。多分。
@@ -73,14 +64,42 @@ public class RecipeDaoImpl implements RecipeDao {
 
 	@Override
 	public void update(Recipe recipe) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
-
+		try (Connection con = ds.getConnection()) {
+			String sql = "UPDATE recipe "
+					+ " SET name = ?, detail = ?, url = ?, images = ? "
+					+ " WHERE id = ?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, recipe.getName());
+			stmt.setString(2, recipe.getDetail());
+			stmt.setString(3, recipe.getUrl());
+			stmt.setString(4, recipe.getImages());
+			stmt.setObject(5, recipe.getId(), Types.INTEGER);
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 
 	@Override
 	public void delete(Recipe recipe) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
+		try (Connection con = ds.getConnection()) {
+			String sql = "DELETE FROM recipe WHERE id = ? ";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setObject(1, recipe.getId(), Types.INTEGER);
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			throw e;
+		}
 
+	}
+
+	private Recipe mapToRecipe(ResultSet rs) throws Exception {
+		Integer id = (Integer) rs.getObject("id");
+		String name = rs.getString("name");
+		String detail = rs.getString("detail");
+		String url = rs.getString("url");
+		String images = rs.getString("images");
+
+		return new Recipe(id, name, detail, url, images);
 	}
 
 }

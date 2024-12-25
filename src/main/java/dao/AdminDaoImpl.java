@@ -18,7 +18,7 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	@Override
-	public Admin findByLoginIdAndPass(String loginId, String loginPass) throws Exception {
+	public Admin findByLoginIdAndLoginPass(String loginId, String loginPass) throws Exception {
 		Admin admin = null;
 		try (var con = ds.getConnection()) {
 			String sql = " SELECT * FROM admins "

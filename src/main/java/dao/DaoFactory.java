@@ -8,9 +8,9 @@ public class DaoFactory {
 		return new AdminDaoImpl(getDataSource());
 	}
 	
-	/*public static RecipeDao createCoffeeDao() {
+	public static RecipeDao createCoffeeDao() {
 		return new RecipeDaoImpl(getDataSource());
-	}*/
+	}
 
 	private static DataSource getDataSource() {
 		DataSource ds = null;

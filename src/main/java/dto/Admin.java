@@ -15,6 +15,10 @@ public class Admin {
 		this.name = name;
 	}
 	
+	public void Admin1(Integer object, String string, String string2, String string3) {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
 	public Integer getId() {
 		return id;
 	}

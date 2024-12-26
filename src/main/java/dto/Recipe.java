@@ -8,13 +8,13 @@ public class Recipe {
 	private String url;
 	private String images;
 	
-	public Recipe(Integer id, String name, String detail, String url, String photo) {
+	public Recipe(Integer id, String name, String detail, String url, String images) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.detail = detail;
 		this.url = url;
-		this.images = photo;
+		this.images = images;
 	}
 	
 	public Integer getId() {

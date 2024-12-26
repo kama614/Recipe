@@ -31,20 +31,20 @@ public class LoginServlet extends HttpServlet {
 		try {
 			String loginId = request.getParameter("loginId");
 			String loginPass = request.getParameter("loginPass");
-
-			if (loginId == null || loginPass == null || loginId.isEmpty() || loginPass.isEmpty()) {
-				request.setAttribute("error", "ログインIDとパスワードを入力してください。");
-				request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
-				return;
-			}
+			/*
+						if (loginId == null || loginPass == null || loginId.isEmpty() || loginPass.isEmpty()) {
+							request.setAttribute("error", "ログインIDとパスワードを入力してください。");
+							request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
+							return;
+						}*/
 
 			AdminDao adminDao = DaoFactory.createAdminDao();
 			Admin admin = adminDao.findByLoginIdAndLoginPass(loginId, loginPass);
 
 			if (admin != null) {
 				// セッションにログイン情報を保存
-				request.getSession().setAttribute("loggedInAdminId", admin.getLoginId());
-				response.sendRedirect("recipeList");
+				request.getSession().setAttribute("loginId", admin.getLoginId());
+				response.sendRedirect("listRecipe");
 			} else {
 				// エラーメッセージ設定
 				request.setAttribute("error", "ログインIDまたはパスワードが正しくありません。");

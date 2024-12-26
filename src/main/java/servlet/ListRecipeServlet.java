@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.DaoFactory;
 import dao.RecipeDao;
@@ -19,14 +20,14 @@ public class ListRecipeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*
-				// セッションの確認
-				HttpSession session = request.getSession(false);
-				if (session == null || session.getAttribute("loggedInAdminId") == null) {
-					response.sendRedirect("login");// ログイン画面にリダイレクト
-					return;
-				}
-		*/
+
+		// セッションの確認
+		HttpSession session = request.getSession(false);
+		if (session == null || session.getAttribute("loginId") == null) {
+			response.sendRedirect("login");// ログイン画面にリダイレクト
+			return;
+		}
+
 		try {
 			// レシピデータの取得をDAOに依頼
 			RecipeDao recipeDao = DaoFactory.createRecipeDao(); // RecipeDaoオブジェクトの取得

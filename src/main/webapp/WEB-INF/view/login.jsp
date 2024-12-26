@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="login.css">
 </head>
 <body>
-	<form action="#" id="login-form">
+	<form action="login" method="post" id="login-form">
 		<div class="heading">Login to Repibum</div>
 		<div class="left">
 			<label for="email">Email or ID</label> <br /> <input type="email"
@@ -17,6 +17,9 @@
 			<br /> <input type="password" name="password" id="pass" /> <br />
 			<input type="submit" value="Login" />
 		</div>
+		<c:if test="${not empty error}">
+		<p style="color: red;">${error}</p>
+		</c:if>
 		<div class="right">
 			<div class="connect">Connect with</div>
 			<a href="" class="facebook"> <!--       <span class="fontawesome-facebook"></span> -->

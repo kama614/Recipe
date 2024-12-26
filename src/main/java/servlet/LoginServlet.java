@@ -30,19 +30,29 @@ public class LoginServlet extends HttpServlet {
 		try {
 			String loginId = request.getParameter("loginId");
 			String loginPass = request.getParameter("loginPass");
+			
+			if (loginId == null || loginPass == null || loginId.isEmpty() || loginPass.isEmpty()) {
+                request.setAttribute("error", "ログインIDとパスワードを入力してください。");
+                request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
+                return;
+            }
+			
 			AdminDao adminDao = DaoFactory.createAdminDao();
 			Admin admin = adminDao.findByLoginIdAndLoginPass(loginId, loginPass);
-			if (admin != null) {
-				request.getSession().setAttribute("loginId", admin.getLoginId());
-				response.sendRedirect("listRecipe");
-			} else {
-				request.setAttribute("error", true);
-				request.getRequestDispatcher("/WEB-INF/view/login.jsp")
-						.forward(request, response);
-			}
+			
+			 if (admin != null) {
+	                // セッションにログイン情報を保存
+	                request.getSession().setAttribute("loggedInAdminId", admin.getLoginId());
+	                response.sendRedirect("listRecipe");
+	            } else {
+	                // エラーメッセージ設定
+	                request.setAttribute("error", "ログインIDまたはパスワードが正しくありません。");
+	                request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
+	            }
 
 		} catch (Exception e) {
-			throw new ServletException(e);
+			 e.printStackTrace(); // デバッグ用。運用環境ではロガーを使用してください。
+			    throw new ServletException("ログイン処理中にエラーが発生しました。", e);
 		}
 
 	}

@@ -8,7 +8,7 @@ public class DaoFactory {
 		return new AdminDaoImpl(getDataSource());
 	}
 	
-	public static RecipeDao createCoffeeDao() {
+	public static RecipeDao createRecipeDao() {
 		return new RecipeDaoImpl(getDataSource());
 	}
 

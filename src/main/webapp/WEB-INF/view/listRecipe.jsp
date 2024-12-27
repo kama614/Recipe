@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>レシピリスト</title>
+<link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
 	<h1>レシピリスト</h1>

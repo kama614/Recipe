@@ -9,27 +9,22 @@
 <link rel="stylesheet" href="login.css">
 </head>
 <body>
-	<form action="login" method="post" id="login-form">
-		<div class="heading">Login to Repibum</div>
-		<div class="left">
-			<label for="email">Email or ID</label> <br /> <input type="email"
-				name="email" id="email" /> <br /> <label for="password">Password</label>
-			<br /> <input type="password" name="password" id="pass" /> <br />
-			<input type="submit" value="Login" />
-		</div>
-		<c:if test="${not empty error}">
-		<p style="color: red;">${error}</p>
-		</c:if>
-		<div class="right">
-			<div class="connect">Connect with</div>
-			<a href="" class="facebook"> <!--       <span class="fontawesome-facebook"></span> -->
-				<i class="fa fa-facebook" aria-hidden="true"></i>
-			</a> <br /> <a href="" class="twitter"> <!--       <span class="fontawesome-twitter"></span> -->
-				<i class="fa fa-twitter" aria-hidden="true"></i>
-			</a> <br /> <a href="" class="google-plus"> <!--       <span class="fontawesome-google-plus"></span> -->
-				<i class="fa fa-google-plus" aria-hidden="true"></i>
-			</a>
-		</div>
-	</form>
+	<div class="login-page">
+        <div class="form">
+          <form class="register-form">
+            <input type="text" placeholder="name"/>
+            <input type="password" placeholder="password"/>
+            <input type="text" placeholder="email address"/>
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+          </form>
+          <form class="login-form">
+            <input type="text" placeholder="ユーザーID"/>
+            <input type="password" placeholder="パスワード"/>
+            <button>ログイン</button>
+            <p class="message">登録されていませんか？ <a href="#">ーーアカウントを作成するーー</a></p>
+          </form>
+        </div>
+      </div>
 </body>
 </html>

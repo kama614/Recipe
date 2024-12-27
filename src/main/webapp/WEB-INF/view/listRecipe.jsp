@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>レシピリスト</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+<link href="<%=request.getContextPath()%>/css/listRecipe.css"
+	rel="stylesheet" type="text/css">
 </head>
 <body>
 	<h1>レシピリスト</h1>
@@ -24,7 +25,10 @@
 				<td><c:out value="${recipe.name}" /></td>
 				<td><c:out value="${recipe.detail}" /></td>
 				<td><c:out value="${recipe.url}" /></td>
-				<td><c:out value="${recipe.images}" /></td>
+				<td><img
+					src="${pageContext.request.contextPath}/images/${recipe.images}"
+					alt="Recipe Image"></td>
+				<!-- 画像ファイル名を取得し、画像のURLを動的に生成 -->
 			</tr>
 		</c:forEach>
 	</table>

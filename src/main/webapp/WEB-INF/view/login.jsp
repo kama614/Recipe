@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Login to Repibum</title>
-<link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet" type="text/css"> 
+<link href="<%= request.getContextPath()%>/css/login.css" rel="stylesheet" type="text/css"> 
 </head>
 <body>
 	<div class="login-page">

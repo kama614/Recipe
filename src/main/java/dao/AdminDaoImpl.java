@@ -1,7 +1,9 @@
 package dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -17,10 +19,35 @@ public class AdminDaoImpl implements AdminDao {
 		this.ds = ds;
 	}
 
+	public List<Admin> findAll() throws Exception {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public Admin findById(Integer id) throws Exception {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public void insert(Admin admin) throws Exception {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void update(Admin admin) throws Exception {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void delete(Admin admin) throws Exception {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
 	@Override
-	public Admin findByLoginIdAndPass(String loginId, String loginPass) throws Exception {
+	public Admin findByLoginIdAndLoginPass(String loginId, String loginPass) throws Exception {
 		Admin admin = null;
-		try (var con = ds.getConnection()) {
+		try (Connection con = ds.getConnection()) {
 			String sql = " SELECT * FROM admins "
 					+ " WHERE login_id = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -38,8 +65,12 @@ public class AdminDaoImpl implements AdminDao {
 	}
 
 	private Admin mapToAdmin(ResultSet rs) throws Exception {
-		
-		return new Admin((Integer)rs.getObject("id"),rs.getString("login_id"),rs.getString("login_pass"),rs.getString("name"));
+		Admin admin = new Admin();
+		admin.setId((Integer) rs.getObject("id"));
+		admin.setLoginId(rs.getString("login_id"));
+		admin.setLoginPass(rs.getString("login_pass"));
+		admin.setName(rs.getString("name"));
+		return admin;
 	}
 
 }

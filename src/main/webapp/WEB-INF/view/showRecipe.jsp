@@ -5,31 +5,14 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>レシピリスト</title>
+<title>レシピ詳細</title>
 <link href="<%=request.getContextPath()%>/css/listRecipe.css"
 	rel="stylesheet" type="text/css">
 </head>
 <body>
-	<h1>レシピリスト</h1>
+	<h1>レシピ詳細</h1>
 	<table>
-	
-	<c:forEach items="${recipeList}" var="recipe">
-			<tr>
-				<td><img
-					src="${pageContext.request.contextPath}/images/${recipe.images}"
-					alt="Recipe Image"></td>
-				<!-- 画像ファイル名を取得し、画像のURLを動的に生成 -->
-				
-				<a href="${pageContext.request.contextPath}/recipe/details?image=${recipe.images}">
-    <img src="${pageContext.request.contextPath}/images/${recipe.images}" alt="Recipe Image">
-</a>
-				
-			</tr>
-		</c:forEach>
-	
-	
-	
-		<%-- <tr>
+		<tr>
 			<th>ID</th>
 			<th>料理名</th>
 			<th>材料・調味料・作り方</th>
@@ -47,7 +30,7 @@
 					alt="Recipe Image"></td>
 				<!-- 画像ファイル名を取得し、画像のURLを動的に生成 -->
 			</tr>
-		</c:forEach> --%>
+		</c:forEach>
 	</table>
 	<!-- レシピ登録画面の登録画面に移動するURLつける -->
 	<p>

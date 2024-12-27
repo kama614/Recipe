@@ -1,3 +1,4 @@
+// ログアウトの画面。ホーム画面に飛ぶ。
 package servlet;
 
 import java.io.IOException;

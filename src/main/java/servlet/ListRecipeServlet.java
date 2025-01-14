@@ -1,3 +1,4 @@
+// レシピ一覧のページ
 package servlet;
 
 import java.io.IOException;

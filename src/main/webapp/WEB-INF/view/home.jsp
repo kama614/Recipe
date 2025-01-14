@@ -5,17 +5,18 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <title>Repibum</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/home.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/home.css"
+	type="text/css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
 	rel='stylesheet'>
-<style>
+<!-- <style>
 .hero {
     background-image: url(images/cook_photo01.jpg);
     background-position: center;
@@ -25,7 +26,7 @@
     position: relative;
     z-index: 2;
 }
-</style>
+</style> -->
 </head>
 <body>
 	<!-- navbar section-->
@@ -42,11 +43,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Features</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Pricing</a>
-					</li>
+					<!--ms-autoで右側に寄せる-->
+					<li class="nav-item"><a class="nav-link" href="#">ほーむ</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">れしぴ</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">とうろく</a></li>
 					<!-- ↓ ボタン機能のコード-->
 					<!--  <button class="btn btn-primary ms-2">追加</button> -->
 				</ul>
@@ -60,14 +60,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-7 mx-auto text-center">
-					<h1 class="display-4 text-white">Recipe page</h1>
-					<p class="text-white my-3">Lorem ipsum dolor sit amet
-						consectetur adipisicing elit. Soluta, esse illum earum magni ea
-						molestias laudantium, quibusdam eum minima ullam vitae quam
-						corrupti eos dolorum dolore quo sapiente iusto. Quae.</p>
+					<h1 class="text-white">自分だけのレシピアルバムを作ろう</h1>
+
 					<!-- ↓ ボタン機能のコード二個 -->
-					<a href="#" class="btn btn-primary me-2">レシピ一覧 / 追加登録</a>
-					<!-- <a href="#" class="btn btn-outline-light">Go Page</a> -->
+					<a href="#" class="btn btn-light me-2">はじめる</a>
+					<!-- me(margin end)ボタンの文字終わり側に余白をあける -->
+					<a href="#" class="btn btn-outline-light">レシピ一覧へ</a>
 				</div>
 			</div>
 		</div>
@@ -81,7 +79,7 @@
 			<div class="row g-3">
 				<div class="col-md-8 mx-auto text-center">
 					<!-- <h6 class="text-primary">ーーーーー</h6> -->
-					<h1>旬の食材</h1>
+					<h1 class="text-white">旬の食材</h1>
 					<!-- <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, eum.
                     </p> -->
@@ -176,10 +174,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 mx-auto text-center">
-					<h6 class="text-primary">SERVICES</h6>
-					<h1>Service</h1>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Voluptatem, eum.</p>
+					<h6 class="text-primary">POINT</h6>
+					<h1 class="text-white">ちょこっと豆知識</h1>
+
 				</div>
 			</div>
 			<div class="row g-4">
@@ -189,9 +186,9 @@
 						<div class="iconbox">
 							<i class='bx bxs-comment-detail'></i>
 						</div>
-						<h5 class="mt-4 mb-2">Service</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Reiciendis ex illum fugiat sunt consequuntur atque?</p>
+						<h5 class="mt-4 mb-2">キャベツは茎の部分が甘くて美味しい</h5>
+						<p>キャベツは、一般的に葉っぱを食用として利用しますが、茎の部分も捨てずに調理することができます。
+							特に芯の部分は、甘みがあり栄養価も高いので、スープや炒め物などに加えると美味しいです。</p>
 					</div>
 				</div>
 				<!-- No.01 -->
@@ -201,9 +198,9 @@
 						<div class="iconbox">
 							<i class='bx bxs-comment-detail'></i>
 						</div>
-						<h5 class="mt-4 mb-2">Service</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Reiciendis ex illum fugiat sunt consequuntur atque?</p>
+						<h5 class="mt-4 mb-2">パプリカはビタミンCが豊富</h5>
+						<p>パプリカにはビタミンCが豊富に含まれており、普段の食事で必要なビタミンCの摂取量をカバーすることができます。
+							また、赤パプリカは緑パプリカよりもビタミンCが多く含まれています。</p>
 					</div>
 				</div>
 				<!-- No.02 -->
@@ -213,9 +210,11 @@
 						<div class="iconbox">
 							<i class='bx bxs-comment-detail'></i>
 						</div>
-						<h5 class="mt-4 mb-2">Service</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Reiciendis ex illum fugiat sunt consequuntur atque?</p>
+						<h5 class="mt-4 mb-2">にんじんを食すなら油と一緒に</h5>
+						<p>にんじんにはβ-カロテンが多く含まれています。
+							β-カロテンは身体の中でビタミンＡに変換され、目や粘膜を健やかに保つ働きがあります。
+							また、抗酸化作用もあり、肌の老化や動脈硬化の予防が期待できます。
+							β-カロテンは油と相性がよいので、油と一緒にとることで吸収率が上がります。</p>
 					</div>
 				</div>
 				<!-- No.03 -->

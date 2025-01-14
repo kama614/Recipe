@@ -40,10 +40,24 @@ public class RecipeDaoImpl implements RecipeDao {
 		return recipeList;
 	}
 
-	@Override
-	public List<Recipe> findRecommended() throws Exception {
-		// そのうち記述する。多分。
-		return null;
+	public Recipe findById(Integer id) throws Exception {
+		Recipe recipe = new Recipe();
+
+		try (Connection con = ds.getConnection()) {
+			String sql = " SELECT "
+					+ " recipe.id, recipe.name, recipe.detail, "
+					+ " recipe.url, recipe.images "
+					+ " FROM recipe "
+					+ " WHERE recipe.id = ?";
+
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setObject(1, id, Types.INTEGER);
+
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next() == true) {
+				recipe = mapToRecipe(rs);
+			}
 	}
 
 	@Override

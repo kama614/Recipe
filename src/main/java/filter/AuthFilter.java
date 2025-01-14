@@ -23,13 +23,17 @@ public class AuthFilter extends HttpFilter implements Filter {
 		HttpSession session = req.getSession();
 
 		String uri = req.getRequestURI();
+		// ログインページおよびCSSファイルはフィルター処理をスキップ
 		if (!uri.endsWith("/login") && !uri.contains("/css")) { // @WebFilter("/*")の時は記述必要
 			// loginサーブレットとCSSのみフィルターがかからない設定
+
+			// セッションにログインIDがない場合、ログインページへリダイレクト
 			if (session.getAttribute("loginId") == null) {
 				res.sendRedirect(req.getContextPath() + "/login");
-				return;
+				return; // ログインページまたはCSSへのアクセスはフィルタリングしない
 			}
 		}
+		// 他のリクエストはフィルタリング
 		chain.doFilter(request, response);
 	}
 
@@ -37,6 +41,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 		// TODO Auto-generated method stub
 	}
 }
+
 /*
 認証用フィルタを適用するURL パターンは「」とし、「loginId」という
 セッション変数が存在する場合はログイン済みと判断し、セッション変数が

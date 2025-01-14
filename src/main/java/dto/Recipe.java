@@ -8,6 +8,10 @@ public class Recipe {
 	private String url;
 	private String images;
 	
+	public Recipe() {
+		// デフォルトコンストラクタ
+	}
+	
 	public Recipe(Integer id, String name, String detail, String url, String images) {
 		super();
 		this.id = id;

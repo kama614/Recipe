@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,7 @@ public class RecipeDaoImpl implements RecipeDao {
 		this.ds = ds;
 	}
 
+	//	レシピ一覧で全レシピの取得と表示(ListRecipeServlet)
 	@Override
 	public List<Recipe> findAll() throws Exception {
 		List<Recipe> recipeList = new ArrayList<>();
@@ -31,12 +33,20 @@ public class RecipeDaoImpl implements RecipeDao {
 					+ " FROM recipe ";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
+			
 			while (rs.next()) {
 				recipeList.add(mapToRecipe(rs));
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
+			System.err.println("Database error occurred:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		}catch(Exception e) {
+			System.err.println("Unexpected error occurred:" +e.getMessage());
+			e.printStackTrace();
 			throw e;
 		}
+
 		return recipeList;
 	}
 
@@ -58,6 +68,19 @@ public class RecipeDaoImpl implements RecipeDao {
 			if (rs.next() == true) {
 				recipe = mapToRecipe(rs);
 			}
+
+		} catch (SQLException e) {
+			System.err.println("Database error occurred:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		}catch(Exception e) {
+			System.err.println("Unexpected error occurred:" +e.getMessage());
+			e.printStackTrace();
+			throw e;
+		}
+
+		return recipe;
+
 	}
 
 	@Override

@@ -34,10 +34,19 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
 					<!--ms-autoで右側に寄せる-->
-					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/home">ほーむ</a></li>
-					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/login">れしぴ</a></li>
-					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/register">とうろく</a></li>
-					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/logout">ろぐあうと</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="<%=request.getContextPath()%>/home">ほーむ</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="<%=request.getContextPath()%>/login">れしぴ</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="<%=request.getContextPath()%>/register">とうろく</a></li>
+					<li class="nav-item">
+						<form action="<%=request.getContextPath()%>/logout" method="post"
+							style="display: inline;">
+							<button type="submit" class="btn btn-link nav-link">
+								ろぐあうと</button>
+						</form>
+					</li>
 					<!-- ↓ ボタン機能のコード-->
 					<!--  <button class="btn btn-primary ms-2">追加</button> -->
 				</ul>
@@ -54,7 +63,8 @@
 					<h1 class="text-white">自分だけのレシピアルバムを作ろう</h1>
 
 					<!-- ↓ ボタン機能のコード二個 -->
-					<a href="<%=request.getContextPath()%>/login" class="btn btn-light me-2">はじめる</a>
+					<a href="<%=request.getContextPath()%>/login"
+						class="btn btn-light me-2">はじめる</a>
 					<!-- me(margin end)ボタンの文字終わり側に余白をあける -->
 					<!-- <a href="<%=request.getContextPath()%>/listRecipe" class="btn btn-outline-light">レシピ一覧へ</a> -->
 				</div>
@@ -175,7 +185,7 @@
 					<!-- card section No.01 -->
 					<div class="service card-effect">
 						<div class="iconbox">
-							<i class='bx bxs-comment-detail'></i>
+							<i class='bx bxs-message-rounded-dots'></i>
 						</div>
 						<h5 class="mt-4 mb-2">キャベツは茎の部分が甘くて美味しい</h5>
 						<p>キャベツは、一般的に葉っぱを食用として利用しますが、茎の部分も捨てずに調理することができます。
@@ -187,7 +197,7 @@
 					<!-- card section No.02 -->
 					<div class="service card-effect">
 						<div class="iconbox">
-							<i class='bx bxs-comment-detail'></i>
+							<i class='bx bxs-message-rounded-dots'></i>
 						</div>
 						<h5 class="mt-4 mb-2">パプリカはビタミンCが豊富</h5>
 						<p>パプリカにはビタミンCが豊富に含まれており、普段の食事で必要なビタミンCの摂取量をカバーすることができます。
@@ -199,7 +209,7 @@
 					<!-- card section No.03 -->
 					<div class="service card-effect">
 						<div class="iconbox">
-							<i class='bx bxs-comment-detail'></i>
+							<i class='bx bxs-message-rounded-dots'></i>
 						</div>
 						<h5 class="mt-4 mb-2">にんじんを食すなら油と一緒に</h5>
 						<p>にんじんにはβ-カロテンが多く含まれています。
@@ -209,6 +219,41 @@
 					</div>
 				</div>
 				<!-- No.03 -->
+				<div class="col-lg-4 col-sm-6">
+					<!-- card section No.04 -->
+					<div class="service card-effect">
+						<div class="iconbox">
+							<i class='bx bxs-message-rounded-dots'></i>
+						</div>
+						<h5 class="mt-4 mb-2">納豆は食物繊維が豊富</h5>
+						<p>納豆は、五大栄養素全てと第六の栄養素と呼ばれている「食物繊維」が豊富に含まれています。納豆を1パック食べることでビタミンB6は銀杏80粒分、ビタミンEはトマト1/2個分、マグネシウムは牡蠣3個分程度の栄養を摂取することができます。
+
+							スーパーやコンビニでも購入可能ですので、ぜひ食生活にプラス1品加えてみて下さいね。</p>
+					</div>
+				</div>
+				<!-- No.04 -->
+				<div class="col-lg-4 col-sm-6">
+					<!-- card section No.05 -->
+					<div class="service card-effect">
+						<div class="iconbox">
+							<i class='bx bxs-message-rounded-dots'></i>
+						</div>
+						<h5 class="mt-4 mb-2">血中コレステロールや中性脂肪を下げるには青魚</h5>
+						<p>サバ、マグロ、アジ、イワシなどの青魚は、タンパク質に加え、脂質の中にはDHA・EPAなどの不飽和脂肪酸が豊富に含まれています。不飽和脂肪酸は、血中コレステロールや中性脂肪を下げる役割の他にも乾燥肌・アトピー性皮膚炎の改善、視力の向上に効果があります。さらには、青魚に含まれる数種類のビタミンが、こうした一連の働きを一層高めます。</p>
+					</div>
+				</div>
+				<!-- No.05 -->
+				<div class="col-lg-4 col-sm-6">
+					<!-- card section No.06 -->
+					<div class="service card-effect">
+						<div class="iconbox">
+							<i class='bx bxs-message-rounded-dots'></i>
+						</div>
+						<h5 class="mt-4 mb-2">ブロッコリーには栄養がたくさん</h5>
+						<p>ブロッコリーは、炭水化物、食物繊維に加え、身体を健康に保つためのビタミン(ビタミンB群、ビタミンC、ビタミンE、ビタミンK)や鉄分が豊富に含まれています。中でもビタミンCは他の野菜と比較してずば抜けて高くなっており、100gあたりで1日のビタミンCが摂取できます。ビタミンB、Cは水に溶けやすいので、加熱する時は電子レンジがおすすめです。</p>
+					</div>
+				</div>
+				<!-- No.06 -->
 
 			</div>
 		</div>

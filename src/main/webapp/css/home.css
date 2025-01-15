@@ -81,12 +81,6 @@ section {
 }
 
 
-.btn {
-	padding: 14px 18px;
-	border-width: 2px;
-	border-radius: 10px;
-}
-
 .hero {
 	font-family: "Mochiy Pop One", serif;
 	/*
@@ -116,6 +110,7 @@ section {
 	background-color: #fff;
 	padding: 25px;
 	transition: all 0.35s ease;
+	border-radius: 20px;
 }
 
 .card-effect:hover {

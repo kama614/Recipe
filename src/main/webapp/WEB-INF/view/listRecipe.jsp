@@ -15,54 +15,77 @@
 	rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="bg-dark text-white">
-		<h1 class="ms-5">レシピリスト</h1>
+	<!-- navbar section-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark py-3">
+		<div class="container">
+			<a class="navbar-brand" href="<%=request.getContextPath()%>/home">
+				<h2 class="text-white pt-1">Repibum</h2>
+			</a>
+			<div class="bg-dark text-white">
+				<h1 class="me-5">レシピリスト</h1>
 
-	</div>
+			</div>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<!--ms-autoで右側に寄せる-->
+					<li class="nav-item"><a class="nav-link"
+						href="<%=request.getContextPath()%>/login">れしぴ</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="<%=request.getContextPath()%>/register">とうろく</a></li>
+					<li class="nav-item">
+						<form action="<%=request.getContextPath()%>/logout" method="post"
+							style="display: inline;">
+							<button type="submit" class="btn btn-link nav-link">
+								ろぐあうと</button>
+						</form>
+					</li>
+					<!-- ↓ ボタン機能のコード-->
+					<!--  <button class="btn btn-primary ms-2">追加</button> -->
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- navbar section-->
+
+	<!-- list section -->
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-4 col-sm-6">
-				<!-- card section No.01 -->
-				<div class="recipe-list">
-					<c:forEach items="${recipeList}" var="recipe">
-
+			<!-- card section No.01 -->
+			<div class="recipe-list col-12 d-flex flex-wrap">
+				<!-- d-flex: 子要素をFlexboxでレイアウトします。
+				 flex-wrap: 幅が狭くなった際に要素が折り返されます。 -->
+				<c:forEach items="${recipeList}" var="recipe">
+					<div class="card text-center me-3">
+						<!--  me-3: Bootstrapのマージンユーティリティを使って、各要素の間にスペースを追加します。 -->
 						<img
 							src="${pageContext.request.contextPath}/images/${recipe.images}"
-							alt="Recipe Image">
-
-						<c:out value="${recipe.name}" />
-
-						<!-- 画像ファイル名を取得し、画像のURLを動的に生成 -->
-					</c:forEach>
-				</div>
+							alt="Recipe Image" class="img-fluid">
+						<!-- img-fluid: 画像サイズを自動調整してレスポンシブにします。 -->
+						<p class="recipe-name">
+							<c:out value="${recipe.name}" />
+						</p>
+					</div>
+					<!-- 画像ファイル名を取得し、画像のURLを動的に生成 -->
+				</c:forEach>
 			</div>
+			<!-- card section No.01 -->
 		</div>
 	</div>
 
-	<!-- card section No.01 -->
+
+
+	<!-- list section -->
 
 
 
 
-
-	<dev> <c:forEach items="${recipeList}" var="recipe">
-
-		<img src="${pageContext.request.contextPath}/images/${recipe.images}"
-			alt="Recipe Image">
-
-		<c:out value="${recipe.name}" />
-
-		<!-- 画像ファイル名を取得し、画像のURLを動的に生成 -->
-
-		<!-- <a
-			href="${pageContext.request.contextPath}/recipe/details?image=${recipe.images}">
-			<img src="${pageContext.request.contextPath}/images/${recipe.images}"
-			alt="Recipe Image">
-		</a> -->
-
-
-	</c:forEach> </dev>
 
 
 
@@ -87,8 +110,14 @@
 		</c:forEach> --%>
 
 	<!-- レシピ登録画面の登録画面に移動するURLつける -->
-	<p>
+	<%-- <p>
 		<a href="<%=request.getContextPath()%>/logout">Logout</a>
-	</p>
+		<a href="<%=request.getContextPath()%>/logout" class="btn btn-light me-2">ログアウト</a>
+	</p> --%>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
 </body>
 </html>

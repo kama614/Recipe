@@ -1,10 +1,10 @@
 
 
-ーーーデータベース設計ーーー</h1>
+<h1>ーーーデータベース設計ーーー</h1>
 
-・データベースの作成
-CREATE DATABASE recipe_album_db
-CHARSET utf8mb4 COLLATE utf8mb4_general_ci;
+・データベースの作成<br>
+CREATE DATABASE recipe_album_db<br>
+CHARSET utf8mb4 COLLATE utf8mb4_general_ci;<br>
 
 ・データベース選択
 USE recipe_album_db;

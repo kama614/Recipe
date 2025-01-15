@@ -16,23 +16,13 @@
 	type="text/css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
 	rel='stylesheet'>
-<!-- <style>
-.hero {
-    background-image: url(images/cook_photo01.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    position: relative;
-    z-index: 2;
-}
-</style> -->
+
 </head>
 <body>
 	<!-- navbar section-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark py-3">
 		<div class="container">
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" href="<%=request.getContextPath()%>/home">
 				<h2 class="text-white pt-1">Repibum</h2>
 			</a>
 			<button class="navbar-toggler" type="button"

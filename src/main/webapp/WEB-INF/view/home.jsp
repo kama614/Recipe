@@ -35,8 +35,9 @@
 				<ul class="navbar-nav ms-auto">
 					<!--ms-autoで右側に寄せる-->
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/home">ほーむ</a></li>
-					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/listRecipe">れしぴ</a></li>
+					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/login">れしぴ</a></li>
 					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/register">とうろく</a></li>
+					<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/logout">ろぐあうと</a></li>
 					<!-- ↓ ボタン機能のコード-->
 					<!--  <button class="btn btn-primary ms-2">追加</button> -->
 				</ul>

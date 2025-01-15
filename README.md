@@ -1,15 +1,19 @@
 
 
-ーーーデータベース設計ーーー
+<h3>ーーーデータベース設計ーーー</h3>
 
-CREATE DATABASE recipe_album_db
-CHARSET utf8mb4 COLLATE utf8mb4_general_ci;
+<h5>・データベースの作成</h5><br>
+CREATE DATABASE recipe_album_db<br>
+CHARSET utf8mb4 COLLATE utf8mb4_general_ci;<br>
 
+<h5>・データベース選択</h5>
 USE recipe_album_db;
 
+<h5>・テーブル選択</h5>
 SELECT * FROM admins;
 SELECT * FROM recipe;
 
+<h5>・テーブル作成</h5>
 CREATE TABLE admins (
    id INT PRIMARY KEY AUTO_INCREMENT,
    login_id VARCHAR(30) UNIQUE NOT NULL,
@@ -24,18 +28,20 @@ CREATE TABLE recipe (
    url VARCHAR(255),
    images VARCHAR(50)
    );
-   
-   -- パスワードは「kama,chi,koba」
+
+<h5>・ログインに必要な情報</h5>
+   -- パスワードは「kama」
 INSERT INTO admins VALUES
 (1, "kamada", "$2a$10$Y5Yc7lHQV/r/k7AyIM6i9e5HQ3mJ6aZAV3vyszySQLbgmuNHGl/XW", "鎌田"),
-(2, "chisato", "$2a$10$Uu4ZZpBgCIGBsH.6dOlDzOllrXejMmmmkjdr4b/MAuZY9zLfneuy6", "千紗都"),
-(3, "kobayashi", "$2a$10$wt.DxxNBkGW68bVsIU2xaO4m8bcfapgZvAjmtJtMRnuRHbiAf78na", "小林");
 
+<h5>・レシピの追加</h5>
 INSERT INTO recipe VALUES
 (1, "ゴーヤチャンプル", "卵、ゴーヤ、豆腐", null, "cook_photo03.jpg");
 
+<h5>・adminテーブルのid二番を検索</h5>
 SELECT * FROM admins
 WHERE login_id=2;
+
 
 -- RecipeDaoImplのfindAllに記述
 SELECT

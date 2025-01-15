@@ -23,7 +23,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 		HttpSession session = req.getSession();
 
 		String uri = req.getRequestURI();
-		if (!uri.endsWith("/login") && !uri.contains("/css")) { // @WebFilter("/*")の時は記述必要
+		if (!uri.endsWith("/login") && !uri.endsWith("/home") && !uri.contains("/css")) { // @WebFilter("/*")の時は記述必要
 			// loginサーブレットとCSSのみフィルターがかからない設定
 			if (session.getAttribute("loginId") == null) {
 				res.sendRedirect(req.getContextPath() + "/login");

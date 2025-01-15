@@ -35,7 +35,7 @@
 				<ul class="navbar-nav ms-auto">
 					<!--ms-autoで右側に寄せる-->
 					<li class="nav-item"><a class="nav-link"
-						href="<%=request.getContextPath()%>/login">れしぴ</a></li>
+						href="<%=request.getContextPath()%>/listRecipe">れしぴ</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="<%=request.getContextPath()%>/register">とうろく</a></li>
 					<li class="nav-item">

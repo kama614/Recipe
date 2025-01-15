@@ -63,9 +63,9 @@
 					<h1 class="text-white">自分だけのレシピアルバムを作ろう</h1>
 
 					<!-- ↓ ボタン機能のコード二個 -->
-					<a href="#" class="btn btn-light me-2">はじめる</a>
+					<a href="<%=request.getContextPath()%>/login" class="btn btn-light me-2">はじめる</a>
 					<!-- me(margin end)ボタンの文字終わり側に余白をあける -->
-					<a href="#" class="btn btn-outline-light">レシピ一覧へ</a>
+					<!-- <a href="<%=request.getContextPath()%>/listRecipe" class="btn btn-outline-light">レシピ一覧へ</a> -->
 				</div>
 			</div>
 		</div>

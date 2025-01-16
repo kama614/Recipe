@@ -22,6 +22,7 @@
 				</p>
 			</form>
 			<!-- register-form -->
+			
 			<form class="login-form" method="post">
 				<!-- form -->
 				<input type="text" name="loginId" placeholder="ユーザーID" /> <input

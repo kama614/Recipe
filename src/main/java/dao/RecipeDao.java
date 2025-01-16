@@ -15,6 +15,8 @@ public interface RecipeDao {
 
 	void delete(Recipe recipe) throws Exception; // 削除
 
+	void insert(Recipe recipe);
+
 
 
 }

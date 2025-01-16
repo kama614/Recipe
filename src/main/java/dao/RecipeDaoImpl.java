@@ -139,4 +139,10 @@ public class RecipeDaoImpl implements RecipeDao {
 		return new Recipe(id, name, detail, url, images);
 	}
 
+	@Override
+	public void insert(Recipe recipe) {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
+
 }

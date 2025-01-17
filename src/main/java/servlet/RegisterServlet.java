@@ -22,7 +22,7 @@ import dao.RecipeDao;
 import dto.Recipe;
 
 @WebServlet("/register")
-@MultipartConfig(location = "C:/Users/zd3No2/temp")
+@MultipartConfig(location = "C:/Users/zd3N02/temp")
 // @MultipartConfig(location = "c:/temp")
 // 自身のPCならC:の直下に置く
 public class RegisterServlet extends HttpServlet {
@@ -61,6 +61,7 @@ public class RegisterServlet extends HttpServlet {
 		// サーバー内の「アップロードされたファイルが保存されているディレクトリ」を取得する
 		File[] fileList = filePath.listFiles();
 		request.setAttribute("fileList", fileList);
+
 		// デバッグ用にファイルリストをコンソールに表示
 		for (File file : fileList) {
 			System.out.println(file.getPath());
@@ -73,8 +74,10 @@ public class RegisterServlet extends HttpServlet {
 				ファイルの読み込みや削除、一覧表示などの操作が主な用途です。
 			*/
 
+			/*
 			response.setContentType("text/plain");
 			response.getWriter().write("これはサーバーからのデータです！");
+			*/
 		}
 
 		request.getRequestDispatcher("/WEB-INF/view/register.jsp")
@@ -107,7 +110,7 @@ public class RegisterServlet extends HttpServlet {
 		}
 
 		// アップされたファイルの情報を取得
-		Part part = request.getPart("upfile");
+		Part part = request.getPart("images");
 		// HTTPリクエスト（multipart/form-data）で送信されたファイルを受け取る。
 		// フォーム内の<input type="file" name="upfile">のname属性が"upfile"の場合、そのアップロードされたファイルにアクセスします。
 		// これにはjavax.servlet.http.Partオブジェクトを使用します。
@@ -131,34 +134,36 @@ public class RegisterServlet extends HttpServlet {
 		request.setAttribute("fileSize", fileSize);
 		request.setAttribute("fileType", fileType);
 		request.setAttribute("fileName", fileName);
-		request.getRequestDispatcher("/WEB-INF/view/register.jsp")
+		request.getRequestDispatcher("/WEB-INF/view/listRecipe.jsp")
 				.forward(request, response);
 
+		/*
 		// ユーザー入力を取得
 		String userInput = request.getParameter("userInput");
 
-		// 入力値を検証
-		if (isMalicious(userInput)) {
-			// 悪意のある入力を検知した場合、エラーメッセージを返す
-			response.setContentType("text/plain");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("不正な入力が検出されました！");
-			return;
-
-		}
-
-		// 正常な処理を続ける
-		response.setContentType("text/plain");
-		response.getWriter().write("入力値は正常です: " + escapeHtml(userInput));
-
+				// 入力値を検証
+				if (isMalicious(userInput)) {
+					// 悪意のある入力を検知した場合、エラーメッセージを返す
+					response.setContentType("text/plain");
+					response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+					response.getWriter().write("不正な入力が検出されました！");
+					return;
+		
+				}
+		
+				// 正常な処理を続ける
+				response.setContentType("text/plain");
+				response.getWriter().write("入力値は正常です: " + escapeHtml(userInput));
+		*/
 	}
 
 	private File getUploadedDirectory(HttpServletRequest request) {
 		ServletContext context = request.getServletContext();
-		String path = context.getRealPath("uploads");
+		String path = context.getRealPath("/images");
 		return new File(path);
 	}
 
+	/*
 	// 悪意のある入力を検知するメソッド
 	private boolean isMalicious(String input) {
 		if (input == null || input.isEmpty()) {
@@ -196,4 +201,5 @@ public class RegisterServlet extends HttpServlet {
 				.replace("\"", "&quot;")
 				.replace("'", "&#39;");
 	}
+	*/
 }

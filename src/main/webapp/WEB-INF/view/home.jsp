@@ -19,9 +19,7 @@
 <%-- ServletContextを使ってパスを動的に生成するために記述
 <style>
     body {
-        background-image: url('<%= request.getContextPath() %>/images/background.jpg');
-        background-size: cover;
-        background-position: center;
+        background-image: url('<%= request.getContextPath() %>/images/cook_photo01.jpg');
     }
 </style>
  --%>

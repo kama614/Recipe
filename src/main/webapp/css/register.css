@@ -93,6 +93,10 @@ body::after {
    background: none;
 }
 
+.navbar-collapse{
+	   flex-grow: 0;
+}
+
 h1 {
 	font-family: "Mochiy Pop One", serif;
 	text-align: center;

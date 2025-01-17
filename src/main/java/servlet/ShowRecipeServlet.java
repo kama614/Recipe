@@ -18,16 +18,17 @@ import dto.Recipe;
 @WebServlet("/showRecipe")
 public class ShowRecipeServlet extends HttpServlet {
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		// セッションの確認
 		HttpSession session = request.getSession(false);
 		if (session == null || session.getAttribute("loginId") == null) {
 			response.sendRedirect("login");// ログイン画面にリダイレクト
 			return;
 		}
-
+		
 		try {
 			// レシピデータの取得をDAOに依頼
 			RecipeDao recipeDao = DaoFactory.createRecipeDao(); // RecipeDaoオブジェクトの取得
@@ -35,6 +36,25 @@ public class ShowRecipeServlet extends HttpServlet {
 
 			// レシピデータをリクエストスコープに保存
 			request.setAttribute("recipeList", recipeList);
+
+			// レシピ一覧画面にフォワード
+			request.getRequestDispatcher("/WEB-INF/view/showRecipe.jsp")
+					.forward(request, response);
+
+		} catch (Exception e) {
+			e.printStackTrace();// デバッグ用。運用環境ではロガーを使用してください。
+			throw new ServletException("レシピ一覧の取得中にエラーが発生しました。", e);
+			// エラー発生した場合にメッセージを表示
+		}
+
+		try {
+			// ?id=○○を取得
+			int id = Integer.parseInt(request.getParameter("id"));
+
+			// Daoを使い、IDに基づくレシピの詳細を取得
+			RecipeDao dao= DaoFactory.createRecipeDao(); // RecipeDaoオブジェクトの取得
+			// レシピデータをリクエストスコープに保存
+			request.setAttribute("recipe", dao.findById(id));
 
 			// レシピ一覧画面にフォワード
 			request.getRequestDispatcher("/WEB-INF/view/showRecipe.jsp")

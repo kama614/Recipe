@@ -52,8 +52,8 @@
 
 	<!-- register section -->
 	<div class="register-page">
-		<form class="register-form" action="register" method="post"
-			enctype="multipart/form-data">
+		<form class="register-form" action="" method="post"
+			>
 			<table>
 				<tr>
 					<th>料理名</th>
@@ -68,8 +68,9 @@
 					<td><input type="text" name="url"></td>
 				</tr>
 				<tr>
-					<th>写真</th>
-					<td><input type="file" name="images"></td>
+					<form class="register-form" action="register" method="post"
+			enctype="multipart/form-data"><th>写真</th>
+					<td><input type="file" name="images"></td></form>
 				</tr>
 			</table>
 			<button type="submit" value="登録する">登録する</button>

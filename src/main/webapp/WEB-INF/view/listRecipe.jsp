@@ -63,14 +63,14 @@
 				 flex-wrap: 幅が狭くなった際に要素が折り返されます。 -->
 				<c:forEach items="${recipeList}" var="recipe">
 					<div class="card text-center me-3">
-						<!--  me-3: Bootstrapのマージンユーティリティを使って、各要素の間にスペースを追加。 -->
-						<img
+						<a href="<%=request.getContextPath()%>/showRecipe"> <!--  me-3: Bootstrapのマージンユーティリティを使って、各要素の間にスペースを追加。 -->
+							<img
 							src="${pageContext.request.contextPath}/images/${recipe.images}"
-							alt="Recipe Image" class="img-fluid">
-						<!-- img-fluid: 画像サイズを自動調整してレスポンシブにします。 -->
-						<p class="recipe-name">
-							<c:out value="${recipe.name}" />
-						</p>
+							alt="Recipe Image" class="img-fluid"> <!-- img-fluid: 画像サイズを自動調整してレスポンシブにします。 -->
+							<p class="recipe-name">
+								<c:out value="${recipe.name}" />
+							</p>
+						</a>
 					</div>
 					<!-- 画像ファイル名を取得し、画像のURLを動的に生成 -->
 				</c:forEach>

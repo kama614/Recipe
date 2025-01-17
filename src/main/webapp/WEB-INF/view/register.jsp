@@ -41,7 +41,7 @@
 						href="<%=request.getContextPath()%>/register">とうろく</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="<%=request.getContextPath()%>/logout">ろぐあうと</a></li>
-				
+
 					<!-- ↓ ボタン機能のコード-->
 					<!--  <button class="btn btn-primary ms-2">追加</button> -->
 				</ul>
@@ -52,7 +52,8 @@
 
 	<!-- register section -->
 	<div class="register-page">
-		<form class="register-form" action="" method="post">
+		<form class="register-form" action="register" method="post"
+			enctype="multipart/form-data">
 			<table>
 				<tr>
 					<th>料理名</th>
@@ -68,7 +69,7 @@
 				</tr>
 				<tr>
 					<th>写真</th>
-					<td><input type="file" name="upfile"></td>
+					<td><input type="file" name="images"></td>
 				</tr>
 			</table>
 			<button type="submit" value="登録する">登録する</button>

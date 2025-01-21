@@ -15,7 +15,7 @@
 	rel="stylesheet" type="text/css">
 </head>
 <body>
-<!-- navbar section-->
+	<!-- navbar section-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark py-3">
 		<div class="container">
 			<a class="navbar-brand" href="<%=request.getContextPath()%>/home">
@@ -52,34 +52,39 @@
 		</div>
 	</nav>
 	<!-- navbar section-->
-	
+
 	<!-- recipe show section -->
-	
+	<div class="show container">
+		<div class="image">
+			<c:if test="${not empty recipe.images}">
+				<img
+					src="${pageContext.request.contextPath}/images/${recipe.images}"
+					alt="Recipe Image">
+			</c:if>
+			<c:if test="${empty recipe.images}">
+				<p>No image available</p>
+			</c:if>
+		</div>
+		<div class="sentence">
+			<h3 class="pt-4 pb-2">
+				<c:out value="${recipe.name}" />
+			</h3>
 
-	<div class="image">
-		<c:if test="${not empty recipe.images}">
-			<img src="${pageContext.request.contextPath}/images/${recipe.images}"
-				alt="Recipe Image">
-		</c:if>
-		<c:if test="${empty recipe.images}">
-			<p>No image available</p>
-		</c:if>
+			<h6>材料・調味料・作り方</h6>
+			<p>
+				<c:out value="${recipe.detail}" />
+			</p>
+
+			<h6 class="showurl">URL：</h6>
+			<c:if test="${not empty recipe.url}">
+				<a href="${recipe.url}"><c:out value="${recipe.url}" /></a>
+			</c:if>
+
+			<c:if test="${empty recipe.url}">
+				<p></p>
+			</c:if>
+		</div>
 	</div>
-
-	<h3>
-		<c:out value="${recipe.name}" />
-	</h3>
-
-	<p>材料・調味料・作り方</p>
-	<c:out value="${recipe.detail}" />
-	
-	<c:if test="${not empty recipe.url}">
-    <a href="${recipe.url}">URL</a>
-</c:if>
-
-<c:if test="${empty recipe.url}">
-    <p>No URL provided</p>
-</c:if>
 	<!-- recipe show section -->
 
 </body>

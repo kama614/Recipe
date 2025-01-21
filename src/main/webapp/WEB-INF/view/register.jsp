@@ -52,25 +52,27 @@
 
 	<!-- register section -->
 	<div class="register-page">
-		<form class="register-form" action="" method="post"
-			>
+		<form class="register-form" action="<%=request.getContextPath()%>/register" method="post"
+			enctype="multipart/form-data">
 			<table>
 				<tr>
 					<th>料理名</th>
-					<td><input type="text" name="name"></td>
+					<td><input type="text" name="name"
+						value="<c:out value="${name}" />"></td>
 				</tr>
 				<tr>
 					<th>詳細</th>
-					<td><textarea name="detail" id="" cols="50" rows="10"></textarea></td>
+					<td><textarea name="detail" id="" cols="50" rows="10"><c:out
+								value="${detail}" /></textarea></td>
 				</tr>
 				<tr>
 					<th>URL</th>
-					<td><input type="text" name="url"></td>
+					<td><input type="text" name="url"
+						value="<c:out value="${url}" />"></td>
 				</tr>
 				<tr>
-					<form class="register-form" action="register" method="post"
-			enctype="multipart/form-data"><th>写真</th>
-					<td><input type="file" name="images"></td></form>
+					<th>写真</th>
+					<td><input type="file" name="images"></td>
 				</tr>
 			</table>
 			<button type="submit" value="登録する">登録する</button>

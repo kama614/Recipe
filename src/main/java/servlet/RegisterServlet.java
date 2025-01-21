@@ -91,70 +91,64 @@ public class RegisterServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String detail = request.getParameter("detail");
 		String url = request.getParameter("url");
-		String images = request.getParameter("images");
-
-		// データの追加
-		Recipe recipe = new Recipe();
-		recipe.setName(name);
-		recipe.setDetail(detail);
-		recipe.setUrl(url);
-		recipe.setImages(images);
-
-		try {
-			RecipeDao recipeDao = DaoFactory.createRecipeDao();
-			recipeDao.add(recipe); // insertメソッドにする？？
-			request.getRequestDispatcher("/WEB-INF/view/register.jsp")
-					.forward(request, response);
-		} catch (Exception e) {
-			throw new ServletException(e);
-		}
-
 		// アップされたファイルの情報を取得
 		Part part = request.getPart("images");
-		// HTTPリクエスト（multipart/form-data）で送信されたファイルを受け取る。
-		// フォーム内の<input type="file" name="upfile">のname属性が"upfile"の場合、そのアップロードされたファイルにアクセスします。
-		// これにはjavax.servlet.http.Partオブジェクトを使用します。
 		long fileSize = part.getSize();
 		String fileType = part.getContentType();
 		String fileName = part.getSubmittedFileName();
-		/*	
-		利用シナリオ:
-			クライアントからアップロードされたファイルを処理したい場合。
-			ファイルをサーバーに保存したり、ファイルサイズやタイプをチェックしたりする際に利用。
-			「新規にアップロードされたファイル」の処理に特化しており、
-			アップロード時の情報取得やサーバーへの保存を行う際に使用します。
-		*/
-		// アップされたファイルを保存
+		
+		// バリデーション
+		boolean isValid = true;
+		// name, detail, urlの検証
+		if(name.isBlank()) {
+			isValid = false;
+		}
+		
+		// ファイルの検証
+		// 選択された場合、画像か調べる
 		if (fileSize > 0) {
-			File filePath = getUploadedDirectory(request);
-			part.write(filePath + "/" + fileName);
+			if(!fileType.startsWith("image/")) {
+				isValid = false;
+			}
+		}
+		
+		
+		// 入力に何かしらのエラーがある
+		if(!isValid) {
+			// フォームを再表示
+			return;
 		}
 
+		
+		//--------------------
+		// 入力に不備がない
+		//------------------
+		
+		try {
+			// アップされたファイルを保存
+			if (fileSize > 0) {
+				File filePath = getUploadedDirectory(request);
+				part.write(filePath + "/" + fileName);
+			}
+			
+			// データをまとめる
+			Recipe recipe = new Recipe();
+			recipe.setName(name);
+			recipe.setDetail(detail);
+			recipe.setUrl(url);
+			recipe.setImages(fileName);
+			
+			// データベースに登録
+			RecipeDao recipeDao = DaoFactory.createRecipeDao();
+			recipeDao.add(recipe);
+		} catch (Exception e) {
+			throw new ServletException(e);
+		}
+		
+
 		// 完了画面の表示
-		request.setAttribute("fileSize", fileSize);
-		request.setAttribute("fileType", fileType);
-		request.setAttribute("fileName", fileName);
-		request.getRequestDispatcher("/WEB-INF/view/listRecipe.jsp")
-				.forward(request, response);
+		response.sendRedirect("/Recipe/listRecipe");
 
-		/*
-		// ユーザー入力を取得
-		String userInput = request.getParameter("userInput");
-
-				// 入力値を検証
-				if (isMalicious(userInput)) {
-					// 悪意のある入力を検知した場合、エラーメッセージを返す
-					response.setContentType("text/plain");
-					response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-					response.getWriter().write("不正な入力が検出されました！");
-					return;
-		
-				}
-		
-				// 正常な処理を続ける
-				response.setContentType("text/plain");
-				response.getWriter().write("入力値は正常です: " + escapeHtml(userInput));
-		*/
 	}
 
 	private File getUploadedDirectory(HttpServletRequest request) {

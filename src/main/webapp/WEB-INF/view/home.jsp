@@ -61,10 +61,10 @@
 
 	<!-- hero section -->
 	<div class="hero vh-100 d-flex align-items-center" id="home">
-		<div class="container">
+		<div class="container main-title py-5">
 			<div class="row">
-				<div class="col-lg-7 mx-auto text-center">
-					<h1 class="text-white">自分だけのレシピアルバムを作ろう</h1>
+				<div class="col-lg-7 mx-auto text-center py-5">
+					<h1 class="text-white pb-2">自分だけのレシピアルバムを作ろう</h1>
 
 					<!-- ↓ ボタン機能のコード二個 -->
 					<a href="<%=request.getContextPath()%>/login"
@@ -80,10 +80,10 @@
 
 	<!-- Projects section -->
 	<section id="projects">
-		<div class="container-fluid">
-			<div class="row g-3">
-				<div class="col-md-8 mx-auto text-center">
-					<!-- <h6 class="text-primary">ーーーーー</h6> -->
+		<div class="container">
+			<div class="row">
+				<div class="title-bar mx-auto text-center pt-2">
+					<h6 class="text-primary">CHECK</h6>
 					<h1 class="text-white">旬の食材</h1>
 					<!-- <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, eum.
@@ -178,13 +178,13 @@
 	<section id="service">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 mx-auto text-center">
+				<div class="title-bar mx-auto text-center mb-3 pt-2">
 					<h6 class="text-primary">POINT</h6>
 					<h1 class="text-white">ちょこっと豆知識</h1>
 
 				</div>
 			</div>
-			<div class="row g-4">
+			<div class="row g-4 ">
 				<div class="col-lg-4 col-sm-6">
 					<!-- card section No.01 -->
 					<div class="service card-effect">

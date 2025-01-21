@@ -6,6 +6,7 @@
 	--dark: #21252f;
 	--body: #888;
 	--box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+	--back: rgb(0, 0, 0, 0.7);
 }
 
 body {
@@ -33,9 +34,33 @@ h6,
 	font-weight: 700;
 }
 
+
 a {
 	color: var(--dark);
 	text-decoration: none;
+}
+
+.main-title {
+	background-color: var(--back);
+	display: flex;
+	justify-content: space-between;
+	/* 要素を端から端に配置 */
+	align-items: center;
+	/* 中央揃え */
+}
+
+.row {
+	width: 100%;
+	margin: 0;
+}
+
+.col-lg-7 {
+	flex: 1;
+	margin: 0;
+}
+
+.title-bar {
+	background-color: var(--back);
 }
 
 section {

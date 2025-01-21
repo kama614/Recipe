@@ -45,6 +45,10 @@ body::after {
 	z-index: -1;
 }
 
+.navbar {
+	background-image: url("../images/screenshot02.png");
+}
+
 .navbar .nav-link {
 	color: white;
 	font-family: "Mochiy Pop One", serif;

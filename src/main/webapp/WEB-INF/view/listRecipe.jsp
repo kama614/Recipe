@@ -21,7 +21,7 @@
 			<a class="navbar-brand" href="<%=request.getContextPath()%>/home">
 				<h2 class="text-white pt-1">Repibum</h2>
 			</a>
-			<div class="bg-dark text-white">
+			<div class="text-white">
 				<h1 class="me-5">レシピリスト</h1>
 
 			</div>
@@ -54,7 +54,6 @@
 	<!-- navbar section-->
 
 	<!-- list section -->
-
 	<div class="container-fluid">
 		<div class="row">
 			<!-- card section No.01 -->

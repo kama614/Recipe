@@ -43,8 +43,12 @@ section {
 	padding-bottom: 120px;
 }
 
+.navbar {
+	background-image: url("../images/screenshot02.png");
+}
+
 .navbar .nav-link {
-	color:white;
+	color: white;
 	font-family: "Mochiy Pop One", serif;
 	font-size: 18px;
 	font-weight: 700;
@@ -52,32 +56,37 @@ section {
 }
 
 .navbar-toggler-icon {
-  background-image: none; /* デフォルトのアイコンを削除 */
-  background-color: white; /* 白色のバー */
-  width: 30px;
-  height: 3px;
-  border-radius: 2px;
-  display: block;
-  position: relative;
+	background-image: none;
+	/* デフォルトのアイコンを削除 */
+	background-color: white;
+	/* 白色のバー */
+	width: 30px;
+	height: 3px;
+	border-radius: 2px;
+	display: block;
+	position: relative;
 }
 
 .navbar-toggler-icon::before,
 .navbar-toggler-icon::after {
-  content: '';
-  background-color: white; /* 白色のバー */
-  width: 30px;
-  height: 3px;
-  border-radius: 2px;
-  position: absolute;
-  left: 0;
+	content: '';
+	background-color: white;
+	/* 白色のバー */
+	width: 30px;
+	height: 3px;
+	border-radius: 2px;
+	position: absolute;
+	left: 0;
 }
 
 .navbar-toggler-icon::before {
-  top: -10px; /* 上のバー */
+	top: -10px;
+	/* 上のバー */
 }
 
 .navbar-toggler-icon::after {
-  top: 10px; /* 下のバー */
+	top: 10px;
+	/* 下のバー */
 }
 
 

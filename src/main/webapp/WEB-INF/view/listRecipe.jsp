@@ -54,7 +54,6 @@
 	<!-- navbar section-->
 
 	<!-- list section -->
-
 	<div class="container-fluid">
 		<div class="row">
 			<!-- card section No.01 -->
@@ -62,7 +61,7 @@
 				<!-- d-flex: 子要素をFlexboxでレイアウトします。
 				 flex-wrap: 幅が狭くなった際に要素が折り返されます。 -->
 				<c:forEach items="${recipeList}" var="recipe">
-					<div class="card text-center me-3">
+					<div class="card text-center me-3 mt-3">
 						<a href="<%=request.getContextPath()%>/showRecipe?id=${recipe.id}">
 							<!--  me-3: Bootstrapのマージンユーティリティを使って、各要素の間にスペースを追加。 --> <img
 							src="${pageContext.request.contextPath}/images/${recipe.images}"
@@ -78,9 +77,6 @@
 			<!-- card section No.01 -->
 		</div>
 	</div>
-
-
-
 	<!-- list section -->
 
 

@@ -29,22 +29,6 @@ public class HomeServlet extends HttpServlet {
 
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		//TODO
-		/*
-		 * 		ServletContext context = request.getServletContext();
-				String imagePath = context.getRealPath("/images/background.jpg"); // 画像の実パス取得
-		
-				File imageFile = new File(imagePath);
-				if (imageFile.exists()) {
-				    System.out.println("画像ファイルは存在します: " + imagePath);
-				} else {
-				    System.out.println("画像ファイルが見つかりません: " + imagePath);
-				}
-		*/
-	}
 
 	private File getUploadedDirectory(HttpServletRequest request) {
 		ServletContext context = request.getServletContext();

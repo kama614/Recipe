@@ -133,13 +133,13 @@ img {
 	gap: 10px;
 	/* 要素間のスペース */
 	text-align: center;
-	margin: 0 10% 0;
+	margin: 30px 10% 0;
 }
 
 .card {
 	max-width: 100%;
 	/*	画像サイズをカード内で自動調整*/
-	height: 25%;
+	height: 35%;
 	flex: 0 1 calc(25% - 10px);
 	/* カードの幅を調整（全体の25%） */
 	box-sizing: border-box;

@@ -38,13 +38,8 @@
 						href="<%=request.getContextPath()%>/listRecipe">れしぴ</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="<%=request.getContextPath()%>/register">とうろく</a></li>
-					<li class="nav-item">
-						<form action="<%=request.getContextPath()%>/logout" method="post"
-							style="display: inline;">
-							<button type="submit" class="btn btn-link nav-link">
-								ろぐあうと</button>
-						</form>
-					</li>
+					<li class="nav-item"><a class="nav-link"
+						href="<%=request.getContextPath()%>/logout">ろぐあうと</a></li>
 					<!-- ↓ ボタン機能のコード-->
 					<!--  <button class="btn btn-primary ms-2">追加</button> -->
 				</ul>
@@ -54,7 +49,7 @@
 	<!-- navbar section-->
 
 	<!-- recipe show section -->
-	<div class="show container">
+	<div class="show-details container">
 		<div class="image">
 			<c:if test="${not empty recipe.images}">
 				<img
@@ -69,12 +64,12 @@
 			<h3 class="pt-4 pb-2">
 				<c:out value="${recipe.name}" />
 			</h3>
-
-			<h6>材料・調味料・作り方</h6>
-			<p>
-				<c:out value="${recipe.detail}" />
-			</p>
-
+			<div class="sentence-in">
+				<h6 >材料・調味料・作り方</h6>
+				<p>
+					<c:out value="${recipe.detail}" />
+				</p>
+			</div>
 			<h6 class="showurl">URL：</h6>
 			<c:if test="${not empty recipe.url}">
 				<a href="${recipe.url}"><c:out value="${recipe.url}" /></a>
@@ -87,5 +82,9 @@
 	</div>
 	<!-- recipe show section -->
 
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
 </body>
 </html>

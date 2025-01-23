@@ -38,13 +38,8 @@
 						href="<%=request.getContextPath()%>/listRecipe">れしぴ</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="<%=request.getContextPath()%>/register">とうろく</a></li>
-					<li class="nav-item">
-						<form action="<%=request.getContextPath()%>/logout" method="post"
-							style="display: inline;">
-							<button type="submit" class="btn btn-link nav-link">
-								ろぐあうと</button>
-						</form>
-					</li>
+					<li class="nav-item"><a class="nav-link"
+						href="<%=request.getContextPath()%>/logout">ろぐあうと</a></li>
 					<!-- ↓ ボタン機能のコード-->
 					<!--  <button class="btn btn-primary ms-2">追加</button> -->
 				</ul>

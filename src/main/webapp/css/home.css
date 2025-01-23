@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
 
 :root {
 	--primary: rgb(255, 128, 64);
@@ -165,8 +166,13 @@ section {
 }
 
 .service {
+	font-family: "Kosugi Maru", serif;
 	position: relative;
 	overflow: hidden;
+}
+
+.service p{
+	color: rgb(128, 64, 64);
 }
 
 .service::after {

@@ -25,7 +25,7 @@ public class AuthFilter extends HttpFilter implements Filter {
 		String uri = req.getRequestURI();
 		
 // ログインページおよびCSSファイルはフィルター処理をスキップ
-		if (!uri.endsWith("/login") && !uri.endsWith("/home") && !uri.contains("/css")) { // @WebFilter("/*")の時は記述必要
+		if (!uri.endsWith("/login") && !uri.endsWith("/logout") && !uri.endsWith("/home") && !uri.contains("/css")&& !uri.contains("/images")) { // @WebFilter("/*")の時は記述必要
 			// loginサーブレットとCSSのみフィルターがかからない設定
 
 			// セッションにログインIDがない場合、ログインページへリダイレクト

@@ -18,15 +18,14 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.getRequestDispatcher("/WEB-INF/view/home.jsp")
-				.forward(request, response);
-
 		// サーバー上の指定ディレクトリ内に保存されているファイル一覧を取得する処理
 		File filePath = getUploadedDirectory(request);
 		// サーバー内の「アップロードされたファイルが保存されているディレクトリ」を取得する
 		File[] fileList = filePath.listFiles();
 		request.setAttribute("fileList", fileList);
 
+		request.getRequestDispatcher("/WEB-INF/view/home.jsp")
+		.forward(request, response);
 	}
 
 

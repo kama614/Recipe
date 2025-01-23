@@ -53,11 +53,24 @@ public class LogoutServlet extends HttpServlet {
 	// まとめることで重複コードを排除してメンテナンス性向上
 	private void performLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		// セッションを無効化
-		request.getSession().invalidate();
+		// セッションがあるかチェック（セッションを無効化する前にチェックする）
+		boolean isLoggedIn = request.getSession(false) != null &&
+				request.getSession().getAttribute("user") != null;
 
-		// ホーム画面にリダイレクト
-		response.sendRedirect(request.getContextPath() + "/home");
+		// セッションを無効化
+		if (request.getSession(false) != null) {
+			request.getSession().invalidate();
+		}
+
+		if(isLoggedIn) {
+			// ログイン状態だった場合はホーム画面にリダイレクト
+			response.sendRedirect(request.getContextPath() + "/home");
+			
+		}else {
+			// ログアウト状態の場合はそのままホーム画面に留まる
+			response.sendRedirect(request.getContextPath() + "/home");
+		}
+		
 	}
 
 }

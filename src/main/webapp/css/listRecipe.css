@@ -162,12 +162,14 @@ img {
 	max-width: 100%;
 	/*	画像サイズをカード内で自動調整*/
 	height: auto;
-	padding-bottom: 20%;
+	padding-bottom: 10%;
 }
 
-p .recipe-name {
+.recipe-name {
 	padding-top: auto;
 	/*名前をカード下部に固定*/
 	font-weight: bold;
+	padding-bottom: 15px;
+	font-size: 20px;
 }
 

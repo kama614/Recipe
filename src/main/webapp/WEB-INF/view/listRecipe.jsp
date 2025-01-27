@@ -61,9 +61,9 @@
 							<!--  me-3: Bootstrapのマージンユーティリティを使って、各要素の間にスペースを追加。 --> <img
 							src="${pageContext.request.contextPath}/images/${recipe.images}"
 							alt="Recipe Image" class="img-fluid"> <!-- img-fluid: 画像サイズを自動調整してレスポンシブにします。 -->
-							<p class="recipe-name">
+							<div class="recipe-name">
 								<c:out value="${recipe.name}" />
-							</p>
+							</div>
 						</a>
 					</div>
 					<!-- 画像ファイル名を取得し、画像のURLを動的に生成 -->
